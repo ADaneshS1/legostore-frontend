@@ -13,14 +13,6 @@ export default function Navbar() {
             Store
           </span>
         </div>
-        <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-          <a href="#" className="hover:text-white transition-colors">
-            Games
-          </a>
-          <a href="#" className="hover:text-white transition-colors">
-            DLC
-          </a>
-        </div>
       </div>
       <div className="flex items-center gap-4">
         <Button

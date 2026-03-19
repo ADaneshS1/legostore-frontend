@@ -1,5 +1,5 @@
-import { Navbar } from "./components/navbar_";
-import { Hero } from "./components/hero_";
+import { Navbar } from "./components/navbar";
+import { Hero } from "./components/hero";
 import { GameCard } from "./components/game-card";
 import { $api } from "./modules/common/api";
 

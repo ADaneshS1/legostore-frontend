@@ -1,55 +1,53 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-// import GameCard from "./components/GameCard";
+import GameCard from "./components/GameCard";
+import { $api } from "./modules/common/api";
 
-// const games = [
-//   {
-//     title: "LEGO® Marvel Super Heroes 2",
-//     genre: "Action, Open-World",
-//     price: "Rp 150.000,00",
-//     image: "/path-to-marvel.jpg",
-//   },
-//   {
-//     title: "LEGO® DC Super-Villains",
-//     genre: "Adventure, Crime",
-//     price: "Rp 150.000,00",
-//     image: "/path-to-dc.jpg",
-//   },
-//   {
-//     title: "LEGO® Batman™ 3: Beyond Gotham",
-//     genre: "Action, Sci-Fi",
-//     price: "Rp 150.000,00",
-//     image: "/path-to-batman.jpg",
-//   },
-// ];
+export function App() {
+  const { data: products, isLoading } = $api.useQuery("get", "/products");
 
-function App() {
+  if (isLoading || !products) {
+    return (
+      <div className="min-h-screen bg-[#121420] flex items-center justify-center">
+        <h2 className="text-white animate-pulse">Loading products...</h2>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-[#121420] font-sans pb-20">
+    <div className="min-h-screen bg-[#121420] font-sans pb-20 text-white">
       <Navbar />
       <Hero />
 
-      {/* <main className="px-10 mt-10">
+      <main className="max-w-7xl mx-auto px-6 lg:px-10 mt-12">
         <section className="mb-12">
-          <h2 className="text-white text-2xl font-bold mb-6">Trending Now</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {games.slice(0, 3).map((game, i) => (
-              <GameCard key={i} {...game} />
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              Trending Now
+            </h2>
+            <button className="text-blue-400 hover:text-blue-300 text-sm font-medium transition">
+              View All
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <GameCard
+                key={product.id}
+                title={product.name}
+                imageUrl={product.imageUrl}
+                price={
+                  product.price
+                    ? `Rp ${product.price.toLocaleString()}`
+                    : "Free"
+                }
+              />
             ))}
           </div>
         </section>
+      </main>
 
-        <section>
-          <h2 className="text-white text-2xl font-bold mb-6">Recommended</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {games.slice(0, 3).map((game, i) => (
-              <GameCard key={i} {...game} />
-            ))}
-          </div>
-        </section>
-      </main> */}
-
-      <footer className="mt-20 text-center text-gray-500 text-sm">
+      <footer className="mt-20 py-10 border-t border-slate-800 text-center text-gray-500 text-sm">
         © 2026 KADS Games. All rights reserved
       </footer>
     </div>

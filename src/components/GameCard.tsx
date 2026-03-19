@@ -13,7 +13,6 @@ export default function GameCard({ title, price, imageUrl }: GameProps) {
       <div className="relative overflow-hidden">
         <img
           src={imageUrl || "https://via.placeholder.com/300x400?text=No+Image"}
-          alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
 

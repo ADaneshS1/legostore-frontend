@@ -7,7 +7,7 @@ interface GameProps {
   imageUrl: string | null;
 }
 
-export default function GameCard({ title, price, imageUrl }: GameProps) {
+export function GameCard({ title, price, imageUrl }: GameProps) {
   return (
     <Card className="bg-[#1a1c29] border-none overflow-hidden group cursor-pointer transition-all hover:ring-2 hover:ring-blue-500/50">
       <div className="relative overflow-hidden">

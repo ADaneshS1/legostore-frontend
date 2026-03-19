@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function Navbar() {
+export function Navbar() {
   return (
     <nav className="flex items-center justify-between px-10 py-6 bg-[#121420] border-b border-slate-800 text-white">
       <div className="flex items-center gap-12">

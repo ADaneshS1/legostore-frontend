@@ -1,6 +1,6 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import GameCard from "./components/GameCard";
+import { Navbar } from "./components/navbar_";
+import { Hero } from "./components/hero_";
+import { GameCard } from "./components/game-card";
 import { $api } from "./modules/common/api";
 
 export function App() {

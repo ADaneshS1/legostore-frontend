@@ -1,4 +1,4 @@
-export default function Hero() {
+export function Hero() {
   return (
     <div className="px-10 py-4">
       <div className="w-full h-87.5 bg-[#1a1c29] rounded-xl flex items-center justify-between px-20">
